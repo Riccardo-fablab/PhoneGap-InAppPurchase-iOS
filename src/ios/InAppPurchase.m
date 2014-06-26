@@ -511,11 +511,7 @@ unsigned char* unbase64( const char* ascii, int len, int *flen )
     }
 
     if (receiptURL != nil) {
-        NSData *receiptData = [NSData dataWithContentsOfURL:receiptURL];
-#if ARC_DISABLED
-        [receiptData autorelease];
-#endif
-        return receiptData;
+        return [NSData dataWithContentsOfURL:receiptURL];
     }
     else {
         return nil;
